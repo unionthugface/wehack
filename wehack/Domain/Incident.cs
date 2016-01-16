@@ -17,6 +17,6 @@ namespace wehack.Domain
 
         public double Lng { get; set; }
 
-        public StatusType Status { get; set; }
+        public ComplaintStatusType Status { get; set; }
     }
 }
