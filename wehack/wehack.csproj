@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -203,15 +204,28 @@
     <Compile Include="Controllers\ComplaintApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Enums\ComplaintStatusType.cs" />
+    <Compile Include="Domain\Category.cs" />
+    <Compile Include="Domain\Incident.cs" />
+    <Compile Include="Domain\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Interfaces\ITwitterService.cs" />
-    <Compile Include="Models\Interfaces\IWehackDataService.cs" />
+    <Compile Include="Models\Requests\Category\CategoryAddRequest.cs" />
+    <Compile Include="Models\Requests\Category\CategoryUpdateRequest.cs" />
+    <Compile Include="Models\Requests\Incident\IncidentAddRequest.cs" />
+    <Compile Include="Models\Requests\Incident\IncidentUpdateRequest.cs" />
+    <Compile Include="Models\Requests\StatusType\StatusTypeAddRequest.cs" />
+    <Compile Include="Models\Requests\StatusType\StatusTypeUpdateRequest.cs" />
+    <Compile Include="Models\Requests\User\UserAddRequest.cs" />
+    <Compile Include="Models\Requests\User\UserUpdateRequest.cs" />
+    <Compile Include="Models\Responses\BaseResponse.cs" />
+    <Compile Include="Models\Responses\ErrorResponse.cs" />
+    <Compile Include="Models\Responses\ItemResponse.cs" />
+    <Compile Include="Models\Responses\ItemsResponse.cs" />
+    <Compile Include="Models\Responses\SuccessResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
