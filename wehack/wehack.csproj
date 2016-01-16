@@ -237,6 +237,7 @@
     </Compile>
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Service\BaseService.cs" />
     <Compile Include="Service\ExtMethods.cs" />
     <Compile Include="Service\TwitterService.cs" />
     <Compile Include="Service\WehackDataService.cs" />

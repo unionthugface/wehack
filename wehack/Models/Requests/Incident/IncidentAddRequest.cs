@@ -15,6 +15,6 @@ namespace wehack.Models.Requests.Incident
 
         public double Lng { get; set; }
 
-        public Guid Status { get; set; }
+        public ComplaintStatusType Status { get; set; }
     }
 }
