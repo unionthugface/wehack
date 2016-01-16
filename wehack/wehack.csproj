@@ -207,12 +207,15 @@
     <Compile Include="Domain\Category.cs" />
     <Compile Include="Domain\Incident.cs" />
     <Compile Include="Domain\User.cs" />
+    <Compile Include="Enums\ComplaintStatusType.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Interfaces\ITwitterService.cs" />
+    <Compile Include="Models\Interfaces\IWehackDataService.cs" />
     <Compile Include="Models\Requests\Category\CategoryAddRequest.cs" />
     <Compile Include="Models\Requests\Category\CategoryUpdateRequest.cs" />
     <Compile Include="Models\Requests\Incident\IncidentAddRequest.cs" />
@@ -1128,8 +1131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Requests\" />
-    <Folder Include="Models\Responses\" />
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
