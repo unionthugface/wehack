@@ -12,12 +12,30 @@ namespace wehack.Controllers
     {
         [Route("send")]
         [HttpPost]
-        public HttpResponseMessage SendComplaint(/*ComplaintModel model*/)
+        public HttpResponseMessage SendComplaint(/*ComplaintRequestModel model*/)
         {
             HttpResponseMessage resp = null;
             try 
             {
-            
+                ComplaintStatusType status = ComplaintStatusType.NotSet;
+
+                //~~Check location and category of tweet to see if complaint already exists
+
+                //ComplaintModel existingComplaint = WehackDataService.GetComplaint(model);
+
+                //if(existingComplaint == null) { WehackDataService.CreateComplaint(model); }
+                //  else { 
+                        //bool userIsAdmin = WehackDataService.CheckIfUserAdmin(model.userId);
+                        //if(userisAdmin) 
+                        //{
+                        //      status = model.Message.ParseStatus();
+                        //      if(status == ComplaintStatusType.Resolved) { WehackDataService.SendResolve(existingComplaint); }
+                        //}
+                        //else
+                            //TwitterService.Retweet(existingComplaint); 
+                //}
+
+                resp = Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (Exception ex)
             {
