@@ -424,7 +424,6 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="HiddenConfig.template.config" />
     <Content Include="HiddenConfig.config" />
     <Content Include="fonts\codropsicons\codropsicons.eot" />
     <Content Include="fonts\codropsicons\codropsicons.ttf" />
@@ -432,6 +431,7 @@
     <Content Include="fonts\icomoon\icomoon.eot" />
     <Content Include="fonts\icomoon\icomoon.ttf" />
     <Content Include="fonts\icomoon\icomoon.woff" />
+    <Content Include="HiddenConfig.template.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
