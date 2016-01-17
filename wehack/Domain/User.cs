@@ -9,10 +9,6 @@ namespace wehack.Domain
     {
         public int UserId { get; set; }
 
-        public string Name { get; set; }
-
-        public string TwitterHandle { get; set; }
-
-        public Guid Oauth { get; set; }
+        public string TwitterHandle { get; set; }        
     }
 }

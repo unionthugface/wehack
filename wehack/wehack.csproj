@@ -23,6 +23,8 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,7 +44,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqToTwitter.AspNet, Version=3.1.2.18330, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToTwitter.3.1.2\lib\net45\LinqToTwitter.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqToTwitterPcl, Version=3.1.2.18329, Culture=neutral, PublicKeyToken=957107be965c25d9, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToTwitter.3.1.2\lib\net45\LinqToTwitterPcl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -50,6 +80,32 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -203,6 +259,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ComplaintApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OauthController.cs" />
+    <Compile Include="Controllers\TwitterActionController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Domain\Category.cs" />
     <Compile Include="Domain\Incident.cs" />
@@ -214,6 +272,7 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Responses\TweetViewModel.cs" />
     <Compile Include="Models\Interfaces\ITwitterService.cs" />
     <Compile Include="Models\Interfaces\IWehackDataService.cs" />
     <Compile Include="Models\Requests\Category\CategoryAddRequest.cs" />
@@ -226,6 +285,7 @@
     <Compile Include="Models\Requests\User\UserUpdateRequest.cs" />
     <Compile Include="Models\Responses\BaseResponse.cs" />
     <Compile Include="Models\Responses\ErrorResponse.cs" />
+    <Compile Include="Models\Responses\IncidentResponse.cs" />
     <Compile Include="Models\Responses\ItemResponse.cs" />
     <Compile Include="Models\Responses\ItemsResponse.cs" />
     <Compile Include="Models\Responses\SuccessResponse.cs" />
@@ -241,28 +301,28 @@
     <Compile Include="Service\ExtMethods.cs" />
     <Compile Include="Service\TwitterService.cs" />
     <Compile Include="Service\WehackDataService.cs" />
+    <Compile Include="Services\TwitterService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="css\animate.css" />
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\component.css" />
-    <Content Include="css\demo.css" />
-    <Content Include="css\font-awesome.min.css" />
-    <Content Include="css\magnific-popup.css" />
-    <Content Include="css\media.css" />
-    <Content Include="css\normalize.css" />
-    <Content Include="css\owl.carousel.css" />
-    <Content Include="css\owl.theme.css" />
-    <Content Include="css\styles\style-blue.css" />
-    <Content Include="css\styles\style-green.css" />
-    <Content Include="css\styles\style-orange.css" />
-    <Content Include="css\styles\style-pink.css" />
-    <Content Include="css\styles\style-red.css" />
-    <Content Include="css\swiper.css" />
+    <Content Include="Content\component.css" />
+    <Content Include="Content\demo.css" />
+    <Content Include="Content\normalize.css" />
+    <Content Include="Content\theme\animate.css" />
+    <Content Include="Content\theme\font-awesome.min.css" />
+    <Content Include="Content\theme\magnific-popup.css" />
+    <Content Include="Content\theme\media.css" />
+    <Content Include="Content\theme\owl.carousel.css" />
+    <Content Include="Content\theme\owl.theme.css" />
+    <Content Include="Content\theme\style-blue.css" />
+    <Content Include="Content\theme\style-green.css" />
+    <Content Include="Content\theme\style-orange.css" />
+    <Content Include="Content\theme\style-pink.css" />
+    <Content Include="Content\theme\style-red.css" />
+    <Content Include="Content\theme\swiper.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\codropsicons\codropsicons.svg" />
     <Content Include="fonts\codropsicons\license.txt" />
@@ -293,20 +353,10 @@
     <Content Include="indexForm.html" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\classie.js" />
-    <Content Include="js\custom.js" />
     <Content Include="js\jquery-1.11.2.min.js" />
-    <Content Include="js\jquery.ajaxchimp.min.js" />
-    <Content Include="js\jquery.easing.1.3.js" />
-    <Content Include="js\jquery.magnific-popup.min.js" />
-    <Content Include="js\jquery.particleground.min.js" />
-    <Content Include="js\jquery.stellar.min.js" />
     <Content Include="js\modernizr.custom.js" />
     <Content Include="js\modernizr.js" />
-    <Content Include="js\owl.carousel.min.js" />
-    <Content Include="js\scrollIt.js" />
     <Content Include="js\stepsForm.js" />
-    <Content Include="js\swiper.min.js" />
-    <Content Include="js\wow.min.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -353,7 +403,9 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="HiddenSettings.config" />
+    <Content Include="HiddenSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="HiddenSettings.template.config" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -372,6 +424,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="HiddenConfig.template.config" />
     <Content Include="HiddenConfig.config" />
     <Content Include="HiddenConfig.template.config" />
     <Content Include="fonts\codropsicons\codropsicons.eot" />
@@ -1128,6 +1181,11 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.ajaxchimp.min.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\jquery.particleground.min.js" />
+    <Content Include="Scripts\jquery.stellar.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1135,6 +1193,12 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\theme\custom.js" />
+    <Content Include="Scripts\theme\owl.carousel.min.js" />
+    <Content Include="Scripts\theme\scrollIt.js" />
+    <Content Include="Scripts\theme\swiper.min.js" />
+    <Content Include="Scripts\theme\wow.min.js" />
+    <Content Include="Scripts\wehack.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1155,9 +1219,16 @@
     <Content Include="Views\Shared\SqueakyWheel_Layout.cshtml" />
     <Content Include="Views\Home\Demo.cshtml" />
     <Content Include="Views\Home\Form.cshtml" />
+    <Content Include="Views\Oauth\Index.cshtml" />
+    <Content Include="Views\Oauth\seshTest.cshtml" />
+    <Content Include="Views\TwitterAction\Success.cshtml" />
+    <Content Include="Views\TwitterAction\HomeTimelineAsync.cshtml" />
+    <Content Include="Views\Home\IssueFeed.cshtml" />
+    <Content Include="Views\Home\FinishedFeed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Requests\" />
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -1187,7 +1258,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>13389</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
@@ -1207,6 +1278,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -1218,4 +1290,5 @@
     <Copy SourceFiles="HiddenConfig.template.config" DestinationFiles="HiddenConfig.config" SkipUnchangedFiles="true" Condition="!Exists('HiddenConfig.config')">
     </Copy>
   </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
 </Project>

@@ -29,5 +29,19 @@ namespace wehack.Controllers
 
             return View();
         }
+
+        public ActionResult IssueFeed()
+        {
+            ViewBag.Title = "IssueFeed";
+
+            return View();
+        }
+
+        public ActionResult FinishedFeed()
+        {
+            ViewBag.Title = "FinishedFeed";
+
+            return View();
+        }
     }
 }
