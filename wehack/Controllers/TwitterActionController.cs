@@ -86,9 +86,9 @@ namespace wehack.Controllers
             }
             catch (Exception ex)
             {
-                //resp = Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+                throw ex;//resp = Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
             }
-            return RedirectToRoute("IssueFeed", "Home");
+            return RedirectToAction("IssueFeed", "Home");  //RedirectToRoute("IssueFeed", "Home");
         }
 
 
