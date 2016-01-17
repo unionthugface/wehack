@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using wehack.Models.Requests.Incident;
 
 namespace wehack.Controllers
 {
@@ -12,14 +13,14 @@ namespace wehack.Controllers
     {
         [Route("send")]
         [HttpPost]
-        public HttpResponseMessage SendComplaint(/*ComplaintRequestModel model*/)
+        public HttpResponseMessage SendComplaint(IncidentAddRequest model)
         {
             HttpResponseMessage resp = null;
             try 
             {
                 ComplaintStatusType status = ComplaintStatusType.NotSet;
 
-                //~~Check location and category of tweet to see if complaint already exists
+                //Check location and category of tweet to see if complaint already exists
 
                 //ComplaintModel existingComplaint = WehackDataService.GetComplaint(model);
 
