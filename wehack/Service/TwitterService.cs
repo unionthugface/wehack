@@ -9,6 +9,11 @@ namespace wehack.Service
 {
     public class TwitterService : ITwitterService
     {
-        //public void Retweet(ComplaintModel model) { }
+        private string _retweetUrl = @"https://api.twitter.com/1.1/statuses/retweet/:id.json";
+
+        public void Retweet(long tweetId) 
+        {
+            
+        }
     }
 }
