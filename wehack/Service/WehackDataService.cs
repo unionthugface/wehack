@@ -51,21 +51,31 @@ namespace wehack.Service
 
         public IncidentResponse CreateComplaint(IncidentAddRequest model)
         {
-            var id = 0;
+            //var id = 0;
 
             List<SqlParameter> collection = new List<SqlParameter>();
             collection.Add(CreateParameter("@categoryId", model.categoryId, SqlDbType.Int, ParameterDirection.Input));
-            collection.Add(CreateParameter("@lat", model.Lat, SqlDbType.BigInt, ParameterDirection.Input));
-            collection.Add(CreateParameter("@lng", model.Lng, SqlDbType.BigInt, ParameterDirection.Input));
-            collection.Add(CreateParameter("@userId", model.UserId, SqlDbType.Int, ParameterDirection.Output));
+            collection.Add(CreateParameter("@lat", model.Lat, SqlDbType.Float, ParameterDirection.Input));
+            collection.Add(CreateParameter("@lng", model.Lng, SqlDbType.Float, ParameterDirection.Input));
+            collection.Add(CreateParameter("@userId", model.UserId, SqlDbType.Int, ParameterDirection.Input));
+            collection.Add(CreateParameter("@TweetId", null, SqlDbType.BigInt, ParameterDirection.Output));
+            collection.Add(CreateParameter("@IncidentId", null, SqlDbType.Int, ParameterDirection.Output));
+
 
             ExecuteNonQuery("wehackdb", "dbo.Incident_Insert", collection);
 
-            id = (int)collection.FirstOrDefault(x => x.ParameterName == "@userId").SqlValue;
+            //id = (int)collection.FirstOrDefault(x => x.ParameterName == "@userId").SqlValue;
 
             IncidentResponse resp = new IncidentResponse();
-            resp.TweetId = (long)collection.FirstOrDefault(x => x.ParameterName == "@TweetId").SqlValue;
-            resp.IncidentId = (int)collection.FirstOrDefault(x => x.ParameterName == "@IncidentId").SqlValue;
+            if (collection.FirstOrDefault(x => x.ParameterName == "@TweetId").Value == DBNull.Value)
+            {
+                resp.TweetId = null;
+            }
+            else
+            {
+                resp.TweetId = (long?)collection.FirstOrDefault(x => x.ParameterName == "@TweetId").SqlValue;
+            }
+            resp.IncidentId = (int)collection.FirstOrDefault(x => x.ParameterName == "@IncidentId").Value;
 
             return resp;
         }
