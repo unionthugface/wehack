@@ -41,7 +41,7 @@ namespace wehack
                     "~/Scripts/theme/wow.min.js"
                 ));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/scripts/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/component.css",
@@ -49,7 +49,7 @@ namespace wehack
                       "~/Content/normalize.css"
                       ));
 
-            bundles.Add(new StyleBundle("~/Content/theme").Include(
+            bundles.Add(new StyleBundle("~/scripts/theme").Include(
                       "~/Content/theme/animate.css",
                       //"~/Content/theme/font-awesome.min.css",
                       "~/Content/theme/magnific-popup.css",

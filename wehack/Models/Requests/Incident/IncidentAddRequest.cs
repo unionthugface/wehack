@@ -9,12 +9,10 @@ namespace wehack.Models.Requests.Incident
     {
         public int UserId { get; set; }
 
-        public int CategoryId { get; set; }
+        public int categoryId { get; set; }
 
         public double Lat { get; set; }
 
         public double Lng { get; set; }
-
-        public ComplaintStatusType Status { get; set; }
     }
 }
