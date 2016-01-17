@@ -7,11 +7,13 @@ namespace wehack.Domain
 {
     public class Incident
     {
-        public int IncidentId { get; set; }
-
-        public int UserId { get; set; }
+        public int Id { get; set; }
 
         public int CategoryId { get; set; }
+
+        public int TweetId { get; set; }
+
+        public int UserId { get; set; }
 
         public double Lat { get; set; }
 
