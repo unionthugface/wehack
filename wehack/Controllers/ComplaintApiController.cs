@@ -31,6 +31,13 @@ namespace wehack.Controllers
                     //get auth context
                     //create tweet
                     //assign tweetId back to database
+                    //template: @riadosaband Issue #93 Pothole! 33.940109, -118.133159 #lahasissues
+                    var categoryString = model.categoryId == 1 ? "Pothole" : "Streetlight";
+                    var tweet = "@riadosaband " + categoryString + " #" + incident.IncidentId.ToString() + " " + model.Lat + ", " + model.Lng + " #lahasissues";
+
+                    TwitterActionController contrlr = new TwitterActionController();
+
+                    contrlr.Send(tweet);
                 }
                 else 
                 {

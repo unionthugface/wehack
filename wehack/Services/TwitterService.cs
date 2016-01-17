@@ -22,14 +22,14 @@ namespace wehack.Services
             );
         }
 
-        public static async void ReTweet(MvcAuthorizer auth, string ID)
+        public static async void ReTweet(MvcAuthorizer auth, int ID)
         {
 
             var ctx = new TwitterContext(auth);
             var context = new TwitterContext(auth);
 
             await context.TweetAsync(
-                ID
+                ID.ToString()
             );
         }
 
