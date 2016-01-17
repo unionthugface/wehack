@@ -75,10 +75,14 @@
 </div>
 
 @section scripts{
-    <script src="/js/modernizr.custom.js"></script>
     <script src="/js/classie.js"></script>
     <script src="/js/stepsForm.js"></script>
     <script>
+
+        WeHack.Page.StartUp = function () { }
+
+
+
         var theForm = document.getElementById('theForm');
 
         new stepsForm(theForm, {
