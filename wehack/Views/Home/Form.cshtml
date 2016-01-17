@@ -4,7 +4,17 @@
 }
 @section style{
 
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/content/style1.css" />
+
+
     <style>
+        
+
+       h1{
+           margin-top: 30px;
+       }
+    
         .btn-sign {
             background: #7cb28a;
             border: 1px solid #7cb28a;
@@ -30,111 +40,127 @@
     </style>
 }
 <div class="container" ng-app="myApp" ng-controller="myCtrl as mc">
-    <div id="box1" class="plan featured wow zoomIn" ng-hide="mc.box1 == true">
+    <div id="box1" class="plan featured wow zoomIn">
         <h1>What is the Issue?</h1>
-        <label>
-            Pot Hole <input type="checkbox" ng-model="mc.issue.categoryId1">
-        </label>
-        <br />
-        <br />
-        <label>
-            Broken Light<input type="checkbox" ng-model="mc.issue.categoryId2">
-        </label>
 
-        <br />
+        <select id="cd-dropdown" name="cd-dropdown" class="cd-select">
+            <option value="-1" selected>Choose the Issue</option>
+            <option value="1" class="icon">Pot Hole</option>
+            <option value="2" class="icon">Broken Light</option>
 
-        <button class="btn btn-sign" ng-click="mc.button1()">Next</button>
-
-    </div>
+        </select>
 
 
-    <div id="box2" class="plan featured wow zoomIn" ng-show="mc.box2 == false">
+
+
+    
         <h1> Current Location</h1>
         <div id="map"></div>
-        <button class="btn btn-sign" ng-click="mc.button2()">Next</button>
-    </div>
+    
 
-    <div id="box3" class="plan featured wow zoomIn" ng-show="mc.box3 == false">
-        <button class="btn btn-sign" ng-click="mc.button3()">Tweet</button>
-    </div>
-</div>
-
-@section scripts{
    
 
+        <button class="btn btn-sign" ng-click="mc.button3()">Tweet</button>
+    </div>
 
-@*<script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqkmbm6q_LeaOAgHhX8jMyKOfK90rw8U&signed_in=true&callback=initMap"async defer></script>*@
+    
 
+@section scripts{
 
-<script src="~/Scripts/angular.js"></script>
-
-<script>
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function ($scope) {
-
-
-        var vm = this;
-
-        vm.item = " yo angular!";
-        vm.issue = null;
-        vm.box1 = false;
-        vm.box2 = true;
-        vm.box3 = true;
-        vm.button1 = _button1;
-        vm.button2 = _button2;
-        render();
-        function render() {
-            //initMap();
-        };
+<script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/js/modernizr.custom.63321.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery.dropdown.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    @*    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqkmbm6q_LeaOAgHhX8jMyKOfK90rw8U&signed_in=true&callback=initMap"async defer></script>*@
 
 
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: -34.397, lng: 150.644 },
-                zoom: 6
-            });
-            var infoWindow = new google.maps.InfoWindow({ map: map });
+    <script src="~/Scripts/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
 
-            // Try HTML5 geolocation.
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
 
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('Location found.');
-                    map.setCenter(pos);
-                }, function () {
-                    handleLocationError(true, infoWindow, map.getCenter());
+            var vm = this;
+
+            vm.item = " yo angular!";
+            vm.issue = {};
+            
+          
+            
+            vm.button3 = _button3;
+            vm.onSuccess = _onSuccess;
+            vm.onerror = _onError;
+            vm.map = initMap;
+
+            render();
+            function render() {
+                vm.map();
+
+                $(function () {
+                  
+
+                    $('#cd-dropdown').dropdown({
+                        gutter: 5
+                    });
+
                 });
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
+
+            };
+
+            function initMap() {
+                var myLatLng = { lat: 33.956365, lng: -118.229689 };
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 16,
+                    center: myLatLng
+                });
+
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'hey'
+                });
             }
-        }
 
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-            infoWindow.setPosition(pos);
-            infoWindow.setContent(browserHasGeolocation ?
-                                  'Error: The Geolocation service failed.' :
-                                  'Error: Your browser doesn\'t support geolocation.');
-        }
-        function _button1() {
 
-            vm.box1 = true;
-            vm.box2 = false;
-        }
 
-        function _button2() {
+            function _button3() {
+                vm.issue.UserId = 2;
+                vm.issue.categoryId = $("select").val();
+                vm.issue.Lat = 33.956365;
+                vm.issue.Lng = -118.229689;
 
-            vm.box2 = true;
-            vm.box3 = false;
-        }
+                console.log(vm.issue.categoryId);
 
-    });
+                var url = "/twitterAction/tweetretweet?" + "UserId=" + vm.issue.UserId + "&categoryId="
+                + vm.issue.categoryId + "&Lat=" + vm.issue.Lat + "&Lng=" + vm.issue.Lng ;
+                var settings = {
+                    cache: false,
+                    dataType: "json",
+                    data: null,
+                    success: vm.onSuccess,
+                    error: vm.onError,
+                    type: "GET"
+                };
 
-</script>
-    }
+                $.ajax(url, settings);
+
+            }
+
+            function _onSuccess(data) {
+
+        
+                console.log(data);
+            }
+
+            function _onError(data) {
+
+                console.log(data, "error")
+            }
+
+
+        });
+
+    </script>
+}
