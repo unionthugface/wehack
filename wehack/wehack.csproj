@@ -1199,7 +1199,6 @@
     <Content Include="Scripts\theme\swiper.min.js" />
     <Content Include="Scripts\theme\wow.min.js" />
     <Content Include="Scripts\wehack.js" />
-    <Content Include="Views\Oauth\seshTest.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
