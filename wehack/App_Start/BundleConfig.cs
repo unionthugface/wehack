@@ -43,7 +43,11 @@ namespace wehack
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/component.css",
+                      "~/Content/demo.css",
+                      "~/Content/normalize.css"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/theme").Include(
                       "~/Content/theme/animate.css",

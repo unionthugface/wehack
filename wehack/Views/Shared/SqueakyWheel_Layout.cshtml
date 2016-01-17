@@ -76,8 +76,8 @@
                                     <!-- Mobile Button End -->
 
                                     <ul class="collapse navbar-collapse navbar-ex1-collapse">
-                                        <li><a data-scroll-nav="0" title="">Home</a></li>                                     
-                                        <li><a data-scroll-nav="6" title="">Contact</a></li>                                     
+                                        <li><a data-scroll-nav="0" title="">Home</a></li>
+                                        <li><a data-scroll-nav="6" title="">Contact</a></li>
                                     </ul>
                                 </nav>
 
@@ -135,7 +135,10 @@
             }
         }
 
-        $(document).ready(WeHack.Layout.StartUp);
+        $(document).ready(function () {
+            Chappi.AppStart();
+            WeHack.Layout.StartUp;
+        });
     </script>
 </body>
 </html>
