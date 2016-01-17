@@ -4,7 +4,7 @@
    Version: 1.0.1   
 **********************************/
 
-
+var Chappi = { };
 
       // Preloader Website
       $(window).load(function() { 
@@ -12,7 +12,8 @@
          $('#loader').delay(750).fadeOut('slow');
       });
 
-$(document).ready(function() {     
+
+Chappi.AppStart = function() {     
     
 
       // Sticky Navabr
@@ -259,7 +260,7 @@ $(document).ready(function() {
        
       
  
-});
+};
 
 // E-mail validation
 function isValidEmailAddress(emailAddress) {
