@@ -1,4 +1,4 @@
-﻿var WeHack = { Layout: {}, Services: {}, Page: {}, Utilities: {} };
+﻿var WeHack = { Layout: {}, Handlers: {}, Services: {}, Page: {}, Utilities: {} };
 
 WeHack.Ajax = function (inputModel) {
     if (!inputModel.URL) {
