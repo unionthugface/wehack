@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/SqueakyWheel_Layout.cshtml";
+}
+@section style{
+
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="/css/component.css" />
+
+
+    <style>
+        section{
+            background: #ffffff;
+
+        }
+
+        .simform ol:before{
+
+            background: #ffffff;
+        }
+
+        .progress {
+        height: 0;
+        }
+
+        .simform .progress {
+
+            height: 0;
+        }
+
+
+        .questions input {
+        display:inline;
+        }
+
+        form, input, textarea {
+        -webkit-appearance:checkbox;
+        }
+
+    </style>
+}
+<div class="container">
+    
+    <section>
+        <form id="theForm" class="simform" autocomplete="off">
+            <div class="simform-inner">
+                <ol class="questions">
+                    <li>
+                        <label for="q1">What's your favorite movie?</label>
+                        <input id="q1" name="q1" type="checkbox" />
+                    </li>
+                    <li>
+                        <span><label for="q2">Where do you live?</label></span>
+                        <input id="q2" name="q2" type="text" />
+                    </li>
+                    
+                </ol><!-- /questions -->
+                <button class="submit" type="submit">Send answers</button>
+                <div class="controls">
+                    <button class="next">Next</button>
+                    <div class="progress"></div>
+                    <span class="number">
+                        <span class="number-current"></span>
+                        <span class="number-total"></span>
+                    </span>
+                    <span class="error-message"></span>
+                </div><!-- / controls -->
+            </div><!-- /simform-inner -->
+            <span class="final-message"></span>
+        </form><!-- /simform -->
+    </section>
+   
+</div>
+
+@section scripts{
+    <script src="/js/modernizr.custom.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/stepsForm.js"></script>
+    <script>
+        var theForm = document.getElementById('theForm');
+
+        new stepsForm(theForm, {
+            onSubmit: function (form) {
+                // hide form
+                classie.addClass(theForm.querySelector('.simform-inner'), 'hide');
+
+                /*
+                form.submit()
+                or
+                AJAX request (maybe show loading indicator while we don't have an answer..)
+                */
+
+                // let's just simulate something...
+                var messageEl = theForm.querySelector('.final-message');
+                messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
+                classie.addClass(messageEl, 'show');
+            }
+        });
+    </script>
+}
