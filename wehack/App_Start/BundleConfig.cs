@@ -41,7 +41,7 @@ namespace wehack
                     "~/Scripts/theme/wow.min.js"
                 ));
 
-            bundles.Add(new StyleBundle("~/scripts/css").Include(
+            bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/component.css",
