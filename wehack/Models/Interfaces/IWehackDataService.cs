@@ -13,7 +13,7 @@ namespace wehack.Models
     {
         IncidentResponse CreateComplaint(IncidentAddRequest model);
 
-        IncidentResponse UpdateComplaint(IncidentUpdateRequest model);
+        void UpdateComplaint(IncidentUpdateRequest model/*, long tweetId*/);
 
         //IncidentResponse CreateComplaint(ComplaintRequestModel model) { get; set; }
 

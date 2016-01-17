@@ -80,23 +80,23 @@ namespace wehack.Service
             return resp;
         }
 
-        public IncidentResponse UpdateComplaint(IncidentUpdateRequest model)
+        public void UpdateComplaint(IncidentUpdateRequest model/*, long tweetId*/)
         {
-            var id = 0;
+            //var id = 0;
 
             List<SqlParameter> collection = new List<SqlParameter>();
-            collection.Add(CreateParameter("@userId", model.UserId, SqlDbType.Int, ParameterDirection.Output));
+            collection.Add(CreateParameter("@Id", model.IncidentId, SqlDbType.Int, ParameterDirection.Output));
             collection.Add(CreateParameter("@tweetId", model.TweetId, SqlDbType.BigInt, ParameterDirection.Input));
 
             ExecuteNonQuery("wehackdb", "dbo.update_tweetId", collection);
 
-            id = (int)collection.FirstOrDefault(x => x.ParameterName == "@userId").SqlValue;
+            //id = (int)collection.FirstOrDefault(x => x.ParameterName == "@userId").SqlValue;
 
-            IncidentResponse resp = new IncidentResponse();
-            resp.TweetId = (long)collection.FirstOrDefault(x => x.ParameterName == "@TweetId").SqlValue;
-            resp.IncidentId = (int)collection.FirstOrDefault(x => x.ParameterName == "@IncidentId").SqlValue;
+            //IncidentResponse resp = new IncidentResponse();
+            //resp.TweetId = (long)collection.FirstOrDefault(x => x.ParameterName == "@TweetId").SqlValue;
+            //resp.IncidentId = (int)collection.FirstOrDefault(x => x.ParameterName == "@IncidentId").SqlValue;
 
-            return resp;
+            //return resp;
         }
 
         //public bool IsUserAdmin(string userHandle) {}
