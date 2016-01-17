@@ -24,7 +24,8 @@
     <link type="text/css" href="/css/media.css" rel="stylesheet" media="screen" />
 
     <!-- Modernizr -->
-    <script type="text/javascript" src="/js/modernizr.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("style", required: false)
 
     <!-- Comments for IE8 and Lower -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
