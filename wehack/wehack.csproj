@@ -226,6 +226,7 @@
     <Compile Include="Models\Requests\User\UserUpdateRequest.cs" />
     <Compile Include="Models\Responses\BaseResponse.cs" />
     <Compile Include="Models\Responses\ErrorResponse.cs" />
+    <Compile Include="Models\Responses\IncidentResponse.cs" />
     <Compile Include="Models\Responses\ItemResponse.cs" />
     <Compile Include="Models\Responses\ItemsResponse.cs" />
     <Compile Include="Models\Responses\SuccessResponse.cs" />
@@ -343,7 +344,9 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="HiddenSettings.config" />
+    <Content Include="HiddenSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="HiddenSettings.template.config" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -362,8 +365,8 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="HiddenConfig.config" />
     <Content Include="HiddenConfig.template.config" />
+    <Content Include="HiddenConfig.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

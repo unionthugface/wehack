@@ -7,6 +7,6 @@ namespace wehack.Models.Requests.Category
 {
     public class CategoryUpdateRequest : CategoryAddRequest
     {
-        public int CategoryId { get; set; }
+        public int Id { get; set; }
     }
 }
