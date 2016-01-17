@@ -14,5 +14,13 @@ namespace wehack.Controllers
 
             return View();
         }
+
+
+        public ActionResult Demo()
+        {
+            ViewBag.Title = "Home Page";
+
+            return View();
+        }
     }
 }
