@@ -9,6 +9,12 @@
 
 
     <style>
+        
+
+       h1{
+           margin-top: 30px;
+       }
+    
         .btn-sign {
             background: #7cb28a;
             border: 1px solid #7cb28a;
@@ -34,39 +40,34 @@
     </style>
 }
 <div class="container" ng-app="myApp" ng-controller="myCtrl as mc">
-    <div id="box1" class="plan featured wow zoomIn" ng-hide="mc.box1 == true">
+    <div id="box1" class="plan featured wow zoomIn">
         <h1>What is the Issue?</h1>
-            
-                <select id="cd-dropdown" name="cd-dropdown" class="cd-select">
-                    <option value="-1" selected>Choose the Issue</option>
-                    <option value="1" class="icon">Pot Hole</option>
-                    <option value="2" class="icon">Broken Light</option>
 
-                </select>
-            
+        <select id="cd-dropdown" name="cd-dropdown" class="cd-select">
+            <option value="-1" selected>Choose the Issue</option>
+            <option value="1" class="icon">Pot Hole</option>
+            <option value="2" class="icon">Broken Light</option>
 
-            <button class="btn btn-sign" ng-click="mc.button1()">Next</button>
-        
-    </div>
+        </select>
 
 
-    <div id="box2" class="plan featured wow zoomIn" ng-show="mc.box2 == false">
+
+
+    
         <h1> Current Location</h1>
         <div id="map"></div>
-        <button class="btn btn-sign" ng-click="mc.button2()">Next</button>
-    </div>
+    
 
-    <div id="box3" class="plan featured wow zoomIn" ng-show="mc.box3 == false">
+   
 
-        <div class="EmbeddedTweet-tweet">
-            <p>hello</p>
-        </div>
         <button class="btn btn-sign" ng-click="mc.button3()">Tweet</button>
     </div>
-</div>
+
+    
 
 @section scripts{
 
+<script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/js/modernizr.custom.63321.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript" src="~/js/jquery.dropdown.js"></script>
@@ -84,19 +85,20 @@
 
             vm.item = " yo angular!";
             vm.issue = {};
-            vm.box1 = false;
-            vm.box2 = true;
-            vm.box3 = true;
-            vm.button1 = _button1;
-            vm.button2 = _button2;
+            
+          
+            
             vm.button3 = _button3;
+            vm.onSuccess = _onSuccess;
+            vm.onerror = _onError;
             vm.map = initMap;
 
             render();
             function render() {
-
+                vm.map();
 
                 $(function () {
+                  
 
                     $('#cd-dropdown').dropdown({
                         gutter: 5
@@ -122,38 +124,39 @@
             }
 
 
-            function _button1() {
-
-                vm.box1 = true;
-                vm.box2 = false;
-                vm.map();
-
-            }
-
-            function _button2() {
-
-                vm.box2 = true;
-                vm.box3 = false;
-            }
 
             function _button3() {
                 vm.issue.UserId = 2;
-                vm.issue.categoryId = 1;
+                vm.issue.categoryId = $("select").val();
                 vm.issue.Lat = 33.956365;
                 vm.issue.Lng = -118.229689;
 
-                var url = "/api/complaint/send";
+                console.log(vm.issue.categoryId);
+
+                var url = "/twitterAction/tweetretweet?" + "UserId=" + vm.issue.UserId + "&categoryId="
+                + vm.issue.categoryId + "&Lat=" + vm.issue.Lat + "&Lng=" + vm.issue.Lng ;
                 var settings = {
                     cache: false,
-                  
-                    data: vm.issue,
-                    success: onSucces,
-                    error: onError,
-                    type: "POST"
+                    dataType: "json",
+                    data: null,
+                    success: vm.onSuccess,
+                    error: vm.onError,
+                    type: "GET"
                 };
 
                 $.ajax(url, settings);
 
+            }
+
+            function _onSuccess(data) {
+
+        
+                console.log(data);
+            }
+
+            function _onError(data) {
+
+                console.log(data, "error")
             }
 
 
