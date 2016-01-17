@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using wehack.Models.Requests.Incident;
+using wehack.Models.Responses;
+using wehack.Service;
 
 namespace wehack.Controllers
 {
@@ -21,7 +23,19 @@ namespace wehack.Controllers
                 ComplaintStatusType status = ComplaintStatusType.NotSet;
 
                 //Check location and category of tweet to see if complaint already exists
+                WehackDataService service = new WehackDataService();
+                IncidentResponse incident = service.CreateComplaint(model);
 
+                if (incident == null || incident.TweetId == null)
+                {
+                    //get auth context
+                    //create tweet
+                    //assign tweetId back to database
+                }
+                else 
+                {
+                    //retweet existing tweet
+                }
                 //ComplaintModel existingComplaint = WehackDataService.GetComplaint(model);
 
                 //if(existingComplaint == null) { WehackDataService.CreateComplaint(model); }
