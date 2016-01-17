@@ -259,9 +259,6 @@
     <Content Include="Content\theme\style-pink.css" />
     <Content Include="Content\theme\style-red.css" />
     <Content Include="Content\theme\swiper.css" />
-    <Content Include="css\component.css" />
-    <Content Include="css\demo.css" />
-    <Content Include="css\normalize.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\codropsicons\codropsicons.svg" />
     <Content Include="fonts\codropsicons\license.txt" />
