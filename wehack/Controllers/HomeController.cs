@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using wehack.Service;
+using wehack.Models.Requests.Incident;
 
 namespace wehack.Controllers
 {
@@ -25,7 +27,12 @@ namespace wehack.Controllers
 
         public ActionResult Form()
         {
-            
+            WehackDataService service = new WehackDataService();
+            IncidentAddRequest model = new IncidentAddRequest();
+            model.categoryId = 2;
+            model.Lat = -118.229819;
+            model.Lng = 33.957508;
+            model.UserId = 1;
 
             return View();
         }
