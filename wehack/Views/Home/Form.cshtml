@@ -85,9 +85,9 @@
 
             vm.item = " yo angular!";
             vm.issue = {};
-            
-          
-            
+
+
+
             vm.button3 = _button3;
             vm.onSuccess = _onSuccess;
             vm.onerror = _onError;
@@ -98,7 +98,7 @@
                 vm.map();
 
                 $(function () {
-                  
+
 
                     $('#cd-dropdown').dropdown({
                         gutter: 5
@@ -150,8 +150,9 @@
 
             function _onSuccess(data) {
 
-        
-                window.location("@Url.Action("IssueFeed", "Home")");
+
+                console.log(data);
+                window.location = "@Url.Action("IssueFeed", "Home")";
             }
 
             function _onError(data) {
