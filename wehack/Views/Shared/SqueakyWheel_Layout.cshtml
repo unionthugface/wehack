@@ -10,21 +10,11 @@
     <!-- Meta Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- All CSS Styles -->
-    <link type="text/css" href="/css/bootstrap.css" rel="stylesheet" media="screen" />
-    <link type="text/css" href="/css/animate.css" rel="stylesheet" media="screen" />
-    <link type="text/css" href="/css/swiper.css" rel="stylesheet" media="screen" />
-    <link type="text/css" href="/css/owl.carousel.css" rel="stylesheet" media="screen" />
-    <link type="text/css" href="/css/owl.theme.css" rel="stylesheet" media="screen" />
-    <link type="text/css" href="/css/magnific-popup.css" rel="stylesheet" media="screen" />
-    <link type="text/css" href="/css/styles/style-green.css" rel="stylesheet" media="screen" />
-    <link type="text/css" href="/css/font-awesome.min.css" rel="stylesheet" media="screen" />
-
-    <!-- Media Queries -->
-    <link type="text/css" href="/css/media.css" rel="stylesheet" media="screen" />
-
-    <!-- Modernizr -->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/theme")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
     @RenderSection("style", required: false)
 
     <!-- Comments for IE8 and Lower -->
@@ -126,30 +116,31 @@
                     <a class="scrollup" href="/#" title=""><i class="fa fa-angle-up"></i></a>
                     <!-- ScrollToTop End -->
 
-                    <p>All Rights Reserved - Copyright &copy; 2014</p>
+                    <p>All Rights Reserved - Copyright &copy; 2016</p>
 
                 </div>
 
-            </div><!-- .row End -->-->
+            </div><!-- .row End -->
         </div><!-- .container End -->
 
     </footer>
     <!-- Footer -->
     <!-- Javascript Files -->
-    <script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="/js/scrollIt.js"></script>
-    <script type="text/javascript" src="/js/swiper.min.js"></script>
-    <script type="text/javascript" src="/js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="/js/wow.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.stellar.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.ajaxchimp.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.particleground.min.js"></script>
-    <script type="text/javascript" src="/js/custom.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/theme")
+    @Scripts.Render("~/bundles/wehack")
 
     @RenderSection("scripts", required: false)
 
+    <script type="text/javascript">
+        WeHack.Layout.StartUp = function () {
+            if (WeHack.Page.StartUp) {
+                WeHack.Page.StartUp();
+            }
+        }
+
+        $(document).ready(WeHack.Layout.StartUp);
+    </script>
 </body>
 </html>

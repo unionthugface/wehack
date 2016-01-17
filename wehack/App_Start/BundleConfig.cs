@@ -47,7 +47,7 @@ namespace wehack
 
             bundles.Add(new StyleBundle("~/Content/theme").Include(
                       "~/Content/theme/animate.css",
-                      "~/Content/theme/font-awesome.min.css",
+                      //"~/Content/theme/font-awesome.min.css",
                       "~/Content/theme/magnific-popup.css",
                       "~/Content/theme/media.css",
                       "~/Content/theme/owl.carousel.css",
