@@ -10,5 +10,7 @@ namespace wehack.Models.Responses
         public long? TweetId { get; set; }
 
         public int IncidentId { get; set; }
+
+        public int CategoryId { get; set; }
     }
 }
