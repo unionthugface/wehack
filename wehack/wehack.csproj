@@ -426,7 +426,6 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="HiddenConfig.template.config" />
     <Content Include="HiddenConfig.config" />
-    <Content Include="HiddenConfig.template.config" />
     <Content Include="fonts\codropsicons\codropsicons.eot" />
     <Content Include="fonts\codropsicons\codropsicons.ttf" />
     <Content Include="fonts\codropsicons\codropsicons.woff" />
@@ -1224,6 +1223,7 @@
     <Content Include="Views\TwitterAction\HomeTimelineAsync.cshtml" />
     <Content Include="Views\Home\IssueFeed.cshtml" />
     <Content Include="Views\Home\FinishedFeed.cshtml" />
+    <Content Include="Views\Home\Confirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
