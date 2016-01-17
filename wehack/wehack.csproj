@@ -257,10 +257,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ComplaintApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OauthController.cs" />
     <Compile Include="Controllers\TwitterActionController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Domain\Category.cs" />
+    <Compile Include="Domain\Incident.cs" />
+    <Compile Include="Domain\User.cs" />
+    <Compile Include="Enums\ComplaintStatusType.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -268,9 +273,34 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Responses\TweetViewModel.cs" />
+    <Compile Include="Models\Interfaces\ITwitterService.cs" />
+    <Compile Include="Models\Interfaces\IWehackDataService.cs" />
+    <Compile Include="Models\Requests\Category\CategoryAddRequest.cs" />
+    <Compile Include="Models\Requests\Category\CategoryUpdateRequest.cs" />
+    <Compile Include="Models\Requests\Incident\IncidentAddRequest.cs" />
+    <Compile Include="Models\Requests\Incident\IncidentUpdateRequest.cs" />
+    <Compile Include="Models\Requests\StatusType\StatusTypeAddRequest.cs" />
+    <Compile Include="Models\Requests\StatusType\StatusTypeUpdateRequest.cs" />
+    <Compile Include="Models\Requests\User\UserAddRequest.cs" />
+    <Compile Include="Models\Requests\User\UserUpdateRequest.cs" />
+    <Compile Include="Models\Responses\BaseResponse.cs" />
+    <Compile Include="Models\Responses\ErrorResponse.cs" />
+    <Compile Include="Models\Responses\IncidentResponse.cs" />
+    <Compile Include="Models\Responses\ItemResponse.cs" />
+    <Compile Include="Models\Responses\ItemsResponse.cs" />
+    <Compile Include="Models\Responses\SuccessResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Service\BaseService.cs" />
+    <Compile Include="Service\ExtMethods.cs" />
+    <Compile Include="Service\TwitterService.cs" />
+    <Compile Include="Service\WehackDataService.cs" />
     <Compile Include="Services\TwitterService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -278,9 +308,55 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\component.css" />
+    <Content Include="Content\demo.css" />
+    <Content Include="Content\normalize.css" />
+    <Content Include="Content\theme\animate.css" />
+    <Content Include="Content\theme\font-awesome.min.css" />
+    <Content Include="Content\theme\magnific-popup.css" />
+    <Content Include="Content\theme\media.css" />
+    <Content Include="Content\theme\owl.carousel.css" />
+    <Content Include="Content\theme\owl.theme.css" />
+    <Content Include="Content\theme\style-blue.css" />
+    <Content Include="Content\theme\style-green.css" />
+    <Content Include="Content\theme\style-orange.css" />
+    <Content Include="Content\theme\style-pink.css" />
+    <Content Include="Content\theme\style-red.css" />
+    <Content Include="Content\theme\swiper.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\codropsicons\codropsicons.svg" />
+    <Content Include="fonts\codropsicons\license.txt" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\icomoon\icomoon.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\bg\arrow-left.png" />
+    <Content Include="img\bg\arrow-right.png" />
+    <Content Include="img\bg\big-images\1.jpg" />
+    <Content Include="img\bg\big-images\2.jpg" />
+    <Content Include="img\bg\ipad-phone.png" />
+    <Content Include="img\bg\ipad.png" />
+    <Content Include="img\bg\mail-ico.jpg" />
+    <Content Include="img\bg\phone1.png" />
+    <Content Include="img\bg\phone2.png" />
+    <Content Include="img\bg\phone3.png" />
+    <Content Include="img\bg\phones1.png" />
+    <Content Include="img\bg\phones2.png" />
+    <Content Include="img\bg\phones3.png" />
+    <Content Include="img\bg\phones4.png" />
+    <Content Include="img\bg\screen1.jpg" />
+    <Content Include="img\bg\screen2.jpg" />
+    <Content Include="img\bg\screen3.jpg" />
+    <Content Include="img\bg\screen4.jpg" />
+    <Content Include="img\bg\testi.jpg" />
+    <Content Include="index.html" />
+    <Content Include="indexForm.html" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\classie.js" />
+    <Content Include="js\jquery-1.11.2.min.js" />
+    <Content Include="js\modernizr.custom.js" />
+    <Content Include="js\modernizr.js" />
+    <Content Include="js\stepsForm.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -327,7 +403,9 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="HiddenSettings.config" />
+    <Content Include="HiddenSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="HiddenSettings.template.config" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -341,6 +419,20 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="HiddenConfig.template.config" />
+    <Content Include="HiddenConfig.config" />
+    <Content Include="HiddenConfig.template.config" />
+    <Content Include="fonts\codropsicons\codropsicons.eot" />
+    <Content Include="fonts\codropsicons\codropsicons.ttf" />
+    <Content Include="fonts\codropsicons\codropsicons.woff" />
+    <Content Include="fonts\icomoon\icomoon.eot" />
+    <Content Include="fonts\icomoon\icomoon.ttf" />
+    <Content Include="fonts\icomoon\icomoon.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1089,6 +1181,11 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.ajaxchimp.min.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\jquery.particleground.min.js" />
+    <Content Include="Scripts\jquery.stellar.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1096,9 +1193,13 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Scripts\theme\custom.js" />
+    <Content Include="Scripts\theme\owl.carousel.min.js" />
+    <Content Include="Scripts\theme\scrollIt.js" />
+    <Content Include="Scripts\theme\swiper.min.js" />
+    <Content Include="Scripts\theme\wow.min.js" />
+    <Content Include="Scripts\wehack.js" />
+    <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1115,6 +1216,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Shared\SqueakyWheel_Layout.cshtml" />
+    <Content Include="Views\Home\Demo.cshtml" />
+    <Content Include="Views\Home\Form.cshtml" />
     <Content Include="Views\Oauth\Index.cshtml" />
     <Content Include="Views\Oauth\seshTest.cshtml" />
     <Content Include="Views\TwitterAction\Success.cshtml" />
@@ -1134,6 +1238,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -1148,7 +1258,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>13389</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
@@ -1176,6 +1286,8 @@
   </Target> -->
   <Target Name="AfterBuild">
     <Copy SourceFiles="HiddenSettings.template.config" DestinationFiles="HiddenSettings.config" SkipUnchangedFiles="true" Condition="!Exists('HiddenSettings.config')">
+    </Copy>
+    <Copy SourceFiles="HiddenConfig.template.config" DestinationFiles="HiddenConfig.config" SkipUnchangedFiles="true" Condition="!Exists('HiddenConfig.config')">
     </Copy>
   </Target>
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
