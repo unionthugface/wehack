@@ -29,5 +29,12 @@ namespace wehack.Controllers
 
             return View();
         }
+
+        public ActionResult Confirmation()
+        {
+
+
+            return View();
+        }
     }
 }
