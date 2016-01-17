@@ -29,8 +29,13 @@ namespace wehack.Controllers
                     ConsumerSecret = ConfigurationManager.AppSettings["TwitterConsumerSecret"]
                 }
             };
-            string twitterCallbackUrl = Request.Url.ToString().Replace("Begin", "Complete");
-            return await auth.BeginAuthorizationAsync(new Uri("http://localhost:13389/oauth/completeasync"));
+
+            UrlHelper uHelp = new UrlHelper(Request.RequestContext);
+            Uri url = Request.Url;
+            string newUrl = new UriBuilder(url.Scheme, url.Host, url.Port, uHelp.Action("CompleteAsync", "Oauth")).ToString();
+            Uri callbackUri = new Uri(newUrl);
+           
+            return await auth.BeginAuthorizationAsync(callbackUri);
         }
 
         public async Task<ActionResult> CompleteAsync()
@@ -59,7 +64,7 @@ namespace wehack.Controllers
             ulong userID = credentials.UserID;
             //
 
-            return RedirectToAction("Index", "Oauth");
+            return RedirectToAction("Form", "Home");
         }
 
         
