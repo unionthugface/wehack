@@ -248,22 +248,24 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="css\animate.css" />
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\font-awesome.min.css" />
-    <Content Include="css\magnific-popup.css" />
-    <Content Include="css\media.css" />
-    <Content Include="css\owl.carousel.css" />
-    <Content Include="css\owl.theme.css" />
-    <Content Include="css\styles\style-blue.css" />
-    <Content Include="css\styles\style-green.css" />
-    <Content Include="css\styles\style-orange.css" />
-    <Content Include="css\styles\style-pink.css" />
-    <Content Include="css\styles\style-red.css" />
-    <Content Include="css\swiper.css" />
+    <Content Include="Content\theme\animate.css" />
+    <Content Include="Content\theme\font-awesome.min.css" />
+    <Content Include="Content\theme\magnific-popup.css" />
+    <Content Include="Content\theme\media.css" />
+    <Content Include="Content\theme\owl.carousel.css" />
+    <Content Include="Content\theme\owl.theme.css" />
+    <Content Include="Content\theme\style-blue.css" />
+    <Content Include="Content\theme\style-green.css" />
+    <Content Include="Content\theme\style-orange.css" />
+    <Content Include="Content\theme\style-pink.css" />
+    <Content Include="Content\theme\style-red.css" />
+    <Content Include="Content\theme\swiper.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\codropsicons\codropsicons.svg" />
+    <Content Include="fonts\codropsicons\license.txt" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\icomoon\icomoon.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\bg\arrow-left.png" />
     <Content Include="img\bg\arrow-right.png" />
@@ -285,19 +287,13 @@
     <Content Include="img\bg\screen4.jpg" />
     <Content Include="img\bg\testi.jpg" />
     <Content Include="index.html" />
+    <Content Include="indexForm.html" />
     <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\custom.js" />
+    <Content Include="js\classie.js" />
     <Content Include="js\jquery-1.11.2.min.js" />
-    <Content Include="js\jquery.ajaxchimp.min.js" />
-    <Content Include="js\jquery.easing.1.3.js" />
-    <Content Include="js\jquery.magnific-popup.min.js" />
-    <Content Include="js\jquery.particleground.min.js" />
-    <Content Include="js\jquery.stellar.min.js" />
+    <Content Include="js\modernizr.custom.js" />
     <Content Include="js\modernizr.js" />
-    <Content Include="js\owl.carousel.min.js" />
-    <Content Include="js\scrollIt.js" />
-    <Content Include="js\swiper.min.js" />
-    <Content Include="js\wow.min.js" />
+    <Content Include="js\stepsForm.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -367,6 +363,13 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="HiddenConfig.template.config" />
     <Content Include="HiddenConfig.config" />
+    <Content Include="HiddenConfig.template.config" />
+    <Content Include="fonts\codropsicons\codropsicons.eot" />
+    <Content Include="fonts\codropsicons\codropsicons.ttf" />
+    <Content Include="fonts\codropsicons\codropsicons.woff" />
+    <Content Include="fonts\icomoon\icomoon.eot" />
+    <Content Include="fonts\icomoon\icomoon.ttf" />
+    <Content Include="fonts\icomoon\icomoon.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1115,6 +1118,11 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.ajaxchimp.min.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\jquery.particleground.min.js" />
+    <Content Include="Scripts\jquery.stellar.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1122,6 +1130,12 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\theme\custom.js" />
+    <Content Include="Scripts\theme\owl.carousel.min.js" />
+    <Content Include="Scripts\theme\scrollIt.js" />
+    <Content Include="Scripts\theme\swiper.min.js" />
+    <Content Include="Scripts\theme\wow.min.js" />
+    <Content Include="Scripts\wehack.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1139,6 +1153,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Shared\SqueakyWheel_Layout.cshtml" />
+    <Content Include="Views\Home\Demo.cshtml" />
+    <Content Include="Views\Home\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1171,7 +1188,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>13389</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
