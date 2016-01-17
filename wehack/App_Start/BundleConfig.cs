@@ -33,7 +33,7 @@ namespace wehack
                     "~/Scripts/wehack.js"
                 ));
 
-            bundles.Add(new ScriptBundle("~/bundles/theme").Include(
+            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
                     "~/Scripts/theme/custom.js",
                     "~/Scripts/theme/owl.carousel.min.js",
                     "~/Scripts/theme/scrollIt.js",
@@ -49,7 +49,7 @@ namespace wehack
                       "~/Content/normalize.css"
                       ));
 
-            bundles.Add(new StyleBundle("~/scripts/theme").Include(
+            bundles.Add(new StyleBundle("~/Content/custom").Include(
                       "~/Content/theme/animate.css",
                       //"~/Content/theme/font-awesome.min.css",
                       "~/Content/theme/magnific-popup.css",
