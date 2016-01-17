@@ -1199,6 +1199,7 @@
     <Content Include="Scripts\theme\swiper.min.js" />
     <Content Include="Scripts\theme\wow.min.js" />
     <Content Include="Scripts\wehack.js" />
+    <Content Include="Views\Oauth\seshTest.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1220,7 +1221,6 @@
     <Content Include="Views\Home\Demo.cshtml" />
     <Content Include="Views\Home\Form.cshtml" />
     <Content Include="Views\Oauth\Index.cshtml" />
-    <Content Include="Views\Oauth\seshTest.cshtml" />
     <Content Include="Views\TwitterAction\Success.cshtml" />
     <Content Include="Views\TwitterAction\HomeTimelineAsync.cshtml" />
     <Content Include="Views\Home\IssueFeed.cshtml" />
@@ -1228,7 +1228,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Requests\" />
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
