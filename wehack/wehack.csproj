@@ -426,7 +426,6 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="HiddenConfig.template.config" />
     <Content Include="HiddenConfig.config" />
-    <Content Include="HiddenConfig.template.config" />
     <Content Include="fonts\codropsicons\codropsicons.eot" />
     <Content Include="fonts\codropsicons\codropsicons.ttf" />
     <Content Include="fonts\codropsicons\codropsicons.woff" />
