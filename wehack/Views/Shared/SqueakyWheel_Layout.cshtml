@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/theme")
+    @Styles.Render("~/Content/custom")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -76,8 +76,8 @@
                                     <!-- Mobile Button End -->
 
                                     <ul class="collapse navbar-collapse navbar-ex1-collapse">
-                                        <li><a data-scroll-nav="0" title="">Home</a></li>                                                                             
-                                        <li><a data-scroll-nav="6" title="">Contact</a></li>                                       
+                                        <li><a data-scroll-nav="0" title="">Home</a></li>
+                                        <li><a data-scroll-nav="6" title="">Contact</a></li>
                                     </ul>
                                 </nav>
 
@@ -122,8 +122,8 @@
     <!-- Footer -->
     <!-- Javascript Files -->
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/angular")
-    @Scripts.Render("~/bundles/theme")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/custom")
     @Scripts.Render("~/bundles/wehack")
 
     @RenderSection("scripts", required: false)
@@ -135,7 +135,10 @@
             }
         }
 
-        $(document).ready(WeHack.Layout.StartUp);
+        $(document).ready(function () {
+            Chappi.AppStart();
+            WeHack.Layout.StartUp;
+        });
     </script>
 </body>
 </html>
