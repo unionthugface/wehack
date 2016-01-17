@@ -5,99 +5,159 @@
 @section style{
 
     <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/content/style1.css" />
 
 
     <style>
-        section{
-            background: #ffffff;
-
+        .btn-sign {
+            background: #7cb28a;
+            border: 1px solid #7cb28a;
+            border-radius: 10px;
+            color: #fff;
+            padding: 10px 30px;
+            font-size: 21px;
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            transition: all 0.2s;
+            margin: 10px;
         }
 
-        .simform ol:before{
-
-            background: #ffffff;
+        #map {
+            width: 300px;
+            height: 250px;
+            margin: auto;
+            margin-bottom: 10PX;
+            border: 1px solid #7cb28a;
+            border-radius: 10px;
         }
-
-        .progress {
-        height: 0;
-        }
-
-        .simform .progress {
-
-            height: 0;
-        }
-
-
-        .questions input {
-        display:inline;
-        }
-
-        form, input, textarea {
-        -webkit-appearance:checkbox;
-        }
-
     </style>
 }
-<div class="container">
-    
-    <section>
-        <form id="theForm" class="simform" autocomplete="off">
-            <div class="simform-inner">
-                <ol class="questions">
-                    <li>
-                        <label for="q1">What's your favorite movie?</label>
-                        <input id="q1" name="q1" type="checkbox" />
-                    </li>
-                    <li>
-                        <span><label for="q2">Where do you live?</label></span>
-                        <input id="q2" name="q2" type="text" />
-                    </li>
-                    
-                </ol><!-- /questions -->
-                <button class="submit" type="submit">Send answers</button>
-                <div class="controls">
-                    <button class="next">Next</button>
-                    <div class="progress"></div>
-                    <span class="number">
-                        <span class="number-current"></span>
-                        <span class="number-total"></span>
-                    </span>
-                    <span class="error-message"></span>
-                </div><!-- / controls -->
-            </div><!-- /simform-inner -->
-            <span class="final-message"></span>
-        </form><!-- /simform -->
-    </section>
-   
+<div class="container" ng-app="myApp" ng-controller="myCtrl as mc">
+    <div id="box1" class="plan featured wow zoomIn" ng-hide="mc.box1 == true">
+        <h1>What is the Issue?</h1>
+            
+                <select id="cd-dropdown" name="cd-dropdown" class="cd-select">
+                    <option value="-1" selected>Choose the Issue</option>
+                    <option value="1" class="icon">Pot Hole</option>
+                    <option value="2" class="icon">Broken Light</option>
+
+                </select>
+            
+
+            <button class="btn btn-sign" ng-click="mc.button1()">Next</button>
+        
+    </div>
+
+
+    <div id="box2" class="plan featured wow zoomIn" ng-show="mc.box2 == false">
+        <h1> Current Location</h1>
+        <div id="map"></div>
+        <button class="btn btn-sign" ng-click="mc.button2()">Next</button>
+    </div>
+
+    <div id="box3" class="plan featured wow zoomIn" ng-show="mc.box3 == false">
+
+        <div class="EmbeddedTweet-tweet">
+            <p>hello</p>
+        </div>
+        <button class="btn btn-sign" ng-click="mc.button3()">Tweet</button>
+    </div>
 </div>
 
 @section scripts{
-    <script src="/js/classie.js"></script>
-    <script src="/js/stepsForm.js"></script>
+
+    <script src="~/js/modernizr.custom.63321.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery.dropdown.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    @*    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGqkmbm6q_LeaOAgHhX8jMyKOfK90rw8U&signed_in=true&callback=initMap"async defer></script>*@
+
+
+    <script src="~/Scripts/angular.min.js"></script>
     <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
 
-        WeHack.Page.StartUp = function () { }
+
+            var vm = this;
+
+            vm.item = " yo angular!";
+            vm.issue = {};
+            vm.box1 = false;
+            vm.box2 = true;
+            vm.box3 = true;
+            vm.button1 = _button1;
+            vm.button2 = _button2;
+            vm.button3 = _button3;
+            vm.map = initMap;
+
+            render();
+            function render() {
 
 
+                $(function () {
 
-        var theForm = document.getElementById('theForm');
+                    $('#cd-dropdown').dropdown({
+                        gutter: 5
+                    });
 
-        new stepsForm(theForm, {
-            onSubmit: function (form) {
-                // hide form
-                classie.addClass(theForm.querySelector('.simform-inner'), 'hide');
+                });
 
-                /*
-                form.submit()
-                or
-                AJAX request (maybe show loading indicator while we don't have an answer..)
-                */
+            };
 
-                // let's just simulate something...
-                var messageEl = theForm.querySelector('.final-message');
-                messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
-                classie.addClass(messageEl, 'show');
+            function initMap() {
+                var myLatLng = { lat: 33.956365, lng: -118.229689 };
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 16,
+                    center: myLatLng
+                });
+
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'hey'
+                });
             }
+
+
+            function _button1() {
+
+                vm.box1 = true;
+                vm.box2 = false;
+                vm.map();
+
+            }
+
+            function _button2() {
+
+                vm.box2 = true;
+                vm.box3 = false;
+            }
+
+            function _button3() {
+                vm.issue.UserId = 2;
+                vm.issue.categoryId = 1;
+                vm.issue.Lat = 33.956365;
+                vm.issue.Lng = -118.229689;
+
+                var url = "/api/complaint/send";
+                var settings = {
+                    cache: false,
+                  
+                    data: vm.issue,
+                    success: onSucces,
+                    error: onError,
+                    type: "POST"
+                };
+
+                $.ajax(url, settings);
+
+            }
+
+
         });
+
     </script>
 }

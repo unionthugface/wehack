@@ -1,71 +1,119 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
-@font-face {
-	font-weight: normal;
-	font-style: normal;
-	font-family: 'codropsicons';
-	src:url('../fonts/codropsicons/codropsicons.eot');
-	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
-		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
-		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+/* General Demo Style */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
-*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-.clearfix:before, .clearfix:after { content: ''; display: table; }
-.clearfix:after { clear: both; }
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
 
 body {
-	background: #26C281;
-	color: rgba(0,0,0,0.45);
-	font-size: 100%;
-	line-height: 1.25;
-	font-family: 'Lato', Arial, sans-serif;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	background: #f4f4f4 url(../images/grid_DominikKiss_SubtlePatterns.jpg);
+	font-weight: 300;
+	font-size: 15px;
+	color: #333;
+	overflow: scroll;
+	overflow-x: hidden;
 }
 
 a {
-	color: rgba(0,0,0,0.25);
+	color: #555;
 	text-decoration: none;
-	outline: none;
 }
 
-a:hover, a:focus {
-	color: rgba(0,0,0,0.6);
-}
-
-.codrops-header {
-	margin: 0 auto;
-	padding: 3em 1em;
-	text-align: center;
-	color: rgba(0,0,0,0.35);
-}
-
-.codrops-header h1 {
-	margin: 0;
-	font-weight: 400;
-	font-size: 2.5em;
-}
-
-.codrops-header h1 span {
-	display: block;
-	padding: 0 0 0.6em 0.1em;
-	font-size: 0.6em;
-	opacity: 0.7;
-}
-
-/* To Navigation Style */
-.codrops-top {
+.container {
 	width: 100%;
-	text-transform: uppercase;
+	position: relative;
+}
+
+.main,
+.container > header {
+	width: 90%;
+	max-width: 960px;
+	margin: 0 auto;
+	position: relative;
+	padding: 0 10px;
+}
+
+.container > header {
+	padding: 40px 10px 50px;
+	border-bottom: 1px solid #ddd;
+	box-shadow: 0 1px rgba(255,255,255,0.8);
+	margin-bottom: 30px;
+}
+
+.container > header h1 {
+	font-size: 34px;
+	line-height: 38px;
+	margin: 0;
 	font-weight: 700;
-	font-size: 0.69em;
-	line-height: 2.2;
+	color: #333;
+	float: left;
+}
+
+.container > header h1 span {
+	display: block;
+	font-size: 20px;
+	font-weight: 300;
+}
+
+.fleft {
+	float: left;
+	width: 49%;
+	min-width: 300px;
+}
+
+.main p {
+	color: #AAA;
+	padding: 20px 30px 0px 0px;
+	font-size: 20px;
+	line-height: 34px;
+	font-weight: 300;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Header Style */
+.codrops-top {
+	line-height: 24px;
+	font-size: 11px;
+	background: #fff;
+	background: rgba(255, 255, 255, 0.5);
+	text-transform: uppercase;
+	z-index: 9999;
+	position: relative;
+	box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
 }
 
 .codrops-top a {
-	display: inline-block;
-	padding: 0 1em;
-	text-decoration: none;
+	padding: 0px 10px;
 	letter-spacing: 1px;
+	color: #333;
+	display: inline-block;
+}
+
+.codrops-top a:hover {
+	background: rgba(255,255,255,0.8);
+	color: #000;
 }
 
 .codrops-top span.right {
@@ -73,85 +121,41 @@ a:hover, a:focus {
 }
 
 .codrops-top span.right a {
-	display: block;
 	float: left;
+	display: block;
 }
 
-.codrops-icon:before {
-	margin: 0 4px;
-	text-transform: none;
-	font-weight: normal;
-	font-style: normal;
-	font-variant: normal;
-	font-family: 'codropsicons';
-	line-height: 1;
-	speak: none;
-	-webkit-font-smoothing: antialiased;
+/* Demo Buttons Style */
+.codrops-demos {
+	float: right;
+	padding-top: 10px;
 }
 
-.codrops-icon-drop:before {
-	content: "\e001";
-}
-
-.codrops-icon-prev:before {
-	content: "\e004";
-}
-
-section {
-	padding: 5em 2em 10em;
-	background: #2dcb89;
-	text-align: center;
-}
-
-section.related {
-	padding: 3em 1em 4em;
-	background: #465650;
-	color: rgba(0,0,0,0.4);
-	font-size: 1.5em;
-}
-
-.related > a {
-	max-width: 80%;
-	border: 2px solid rgba(0,0,0,0.3);
+.codrops-demos a {
 	display: inline-block;
-	text-align: center;
-	margin: 20px 10px;
-	padding: 25px;
-	-webkit-transition: color 0.3s, border-color 0.3s;
-	transition: color 0.3s, border-color 0.3s;
+	margin: 10px;
+	color: #666;
+	font-weight: 700;
+	line-height: 30px;
+	border-bottom: 4px solid transparent;
 }
 
-.related a:hover {
-	border-color: rgba(0,0,0,0.6);
+.codrops-demos a:hover {
+	color: #000;
+	border-color: #000;
 }
 
-.related a img {
-	max-width: 100%;
-	opacity: 0.4;
-	-webkit-transition: opacity 0.3s;
-	transition: opacity 0.3s;
+.codrops-demos a.current-demo,
+.codrops-demos a.current-demo:hover {
+	color: #aaa;
+	border-color: #aaa;
 }
 
-.related a:hover img,
-.related a:active img {
-	opacity: 1;
-}
 
-.related a h3 {
-	margin: 0;
-	padding: 0.5em 0 0.3em;
-	max-width: 300px;
-	font-weight: 400;
-	font-size: 0.75em;
-	text-align: left;
-}
-
-@media screen and (max-width: 44.75em) {
-	section { padding: 1em 2em; }
-}
-
-@media screen and (max-width: 25em) {
-	.codrops-header { font-size: 0.8em; }
-	section.related { font-size: 1.2em; }
-	.codrops-icon span { display: none; }
-}
+@media screen and (max-width: 730px){
+	.fleft {
+		width: 100%;
+		float: none;
+		text-align: center;
+	}
+} 
